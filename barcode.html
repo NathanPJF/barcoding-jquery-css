@@ -1,0 +1,98 @@
+<head>
+<style>
+body{
+  font-family: sans-serif;
+}
+
+article{
+  margin: 40px 100px;
+}
+
+h2,h3,h4{
+  margin-top: 60px;
+}
+
+@font-face {
+    font-family: 'Code139';
+    src: url('3OF9_NEW.ttf')  format('truetype');
+}
+
+</style>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="bower_components/jsbarcode/EAN_UPC.js"></script>
+  <script src="bower_components/jsbarcode/CODE128.js"></script>
+  <script src="bower_components/jsbarcode/CODE39.js"></script>
+  <script src="bower_components/jsbarcode/JsBarcode.js"></script>
+</head>
+
+<article>
+<h1>Barcode</h1>
+
+<h3>Font-family method</h3>
+<p>Code39 <span style="font-family:Code139; font-size:40px;">*GReGoRY11*</span></p>
+<p>Barcode: GReGoRY11</p>
+
+<h3>jQuery method</h3>
+<p>Code128: <canvas id="barcode" class="new_barcode" data-barcode="9780ASASD"></canvas></p>
+<p>Code128: <canvas class="new_barcode" data-barcode="GREGORY11"></canvas></p>
+<p>Code128: <img class="new_barcode" data-barcode="501IMAGE"></p>
+
+<h3>Pure Javascript function</h3>
+<small>Still relies on jQuery in file though.</small>
+
+<p>Code: 123TESTING</p>
+<img id="barcode_js">
+<br>
+
+<h4>Sources</h4>
+<p>Code 3of9 site on DaFont: <a href="http://www.dafont.com/3of9-barcode.font">http://www.dafont.com/3of9-barcode.font</a></p>
+
+<p>Javascript solution: <a href="https://github.com/lindell/JsBarcode">https://github.com/lindell/JsBarcode</a></p>
+
+
+</article>
+
+<script type="text/javascript">
+  //JsBarcode(object, string, options);
+
+  JsBarcode('#barcode_js', '123TESTING');
+
+//   var product_barcode = $('#barcode').attr('data-barcode');
+//   alert("Barcode: " + product_barcode);
+//   $("#barcode").JsBarcode(product_barcode,{
+//     width:  1,
+//     height: 50,
+//     quite: 10,
+//     format: "CODE128",
+//     displayValue: true,
+//     font:"Monospaced",
+//     textAlign:"center",
+//     fontSize: 16,
+//     backgroundColor:"",
+//     lineColor:"#000"
+// });
+
+
+$('.new_barcode').each(function(index){
+  var this_barcode = $(this).attr('data-barcode');
+
+  $(this).JsBarcode(this_barcode,{
+    width:  1,
+    height: 50,
+    quite: 10,
+    format: "CODE128",
+    displayValue: true,
+    font:"Monospaced",
+    textAlign:"center",
+    fontSize: 16,
+    backgroundColor:"",
+    lineColor:"#000"
+  });
+
+});
+
+  // $("#barcode").JsBarcode("9780199532179",{format:"EAN",displayValue:true,fontSize:20});
+</script>
+
+
+

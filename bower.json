@@ -1,0 +1,18 @@
+{
+  "name": "barcode",
+  "version": "0.0.0",
+  "authors": [
+    "Nathan Ferguson <nathan.pj.ferguson@gmail.com"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jsbarcode": "*"
+  }
+}
